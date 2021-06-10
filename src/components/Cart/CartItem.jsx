@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import ProductCards from '../Products/ProductCards';
 
 const CartItem = (props) => {
-	const { productId, product, quantity } = props;
+	const { product } = props;
 
 	console.log(product);
 	return (
