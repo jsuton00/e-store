@@ -1,0 +1,24 @@
+.search-bar {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0.25rem 1rem;
+	text-align: center;
+}
+
+.search-icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 2rem;
+	transform: translate(0, 48%);
+	z-index: 1;
+}
+
+.search-input {
+	border: 0.0625rem solid #110836;
+	border-radius: 0.5rem;
+	width: 100%;
+	padding: 0.5rem 2.5rem;
+	margin: 0 auto;
+}

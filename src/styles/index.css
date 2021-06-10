@@ -1,0 +1,95 @@
+html {
+	box-sizing: 'border-box';
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: 'inherit';
+}
+
+html,
+body,
+#root {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1rem;
+	overflow-x: hidden;
+	background: #fbfcfe;
+}
+
+header,
+main,
+footer,
+section,
+article,
+aside,
+caption,
+figure {
+	display: block;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+ul,
+ol,
+li,
+code,
+blockquote {
+	display: block;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover,
+a:focus,
+a:active,
+a:visited,
+button:hover,
+button:focus,
+button:active,
+input:hover,
+input:focus,
+input:active,
+select:hover,
+select:focus,
+select:active,
+textarea:hover,
+textarea:focus,
+textarea:active {
+	text-decoration: none;
+	outline: none;
+}
