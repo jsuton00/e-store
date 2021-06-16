@@ -36,7 +36,16 @@ export const LOADING_PRODUCTS = 'LOADING_PRODUCTS';
 
 /** Cart Action Types*/
 export const SELECT_QUANTITY = 'SELECT_QUANTITY';
+export const INCREASE_QUANTITY = 'INCREASE_QUANTITY';
+export const DECREASE_QUANTITY = 'DECREASE_QUANTITY';
+export const SET_QUANTITY = 'SET_QUANTITY';
+
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const ADD_TO_CART_FAIL = 'ADD_TO_CART_FAIL';
+export const ADD_TO_CART_SUCCESS = 'ADD_TO_CART_SUCCESS';
+
+export const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
 /** Pagination Action Types */
 export const LOAD_PAGES = 'LOAD_PAGES';

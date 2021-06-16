@@ -28,6 +28,16 @@ export {
 	setPageSize,
 } from './pagination';
 
-export { selectQuantity, addToCart } from './cart';
+export {
+	selectQuantity,
+	addToCart,
+	addToCartFail,
+	addToCartSuccess,
+	updateCartItem,
+	removeFromCart,
+	increaseQuantity,
+	decreaseQuantity,
+	setQuantity,
+} from './cart';
 
 export { setSearchTerm } from './search';

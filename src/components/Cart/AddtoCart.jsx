@@ -2,13 +2,13 @@ import React, { useRef } from 'react';
 import { CartIcon } from '../../utils/icons-import';
 
 const AddtoCart = (props) => {
-	const { productId, addToCart } = props;
+	const { productId, addToCart, quantity } = props;
 
 	const addToCartRef = useRef();
 
 	const handleClick = (e) => {
 		if (e.target.value === addToCartRef.current.value) {
-			return addToCart(e.target.value);
+			return addToCart(e.target.value, quantity);
 		}
 	};
 

@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { CartIcon } from '../../utils/icons-import';
 
 const CartCounter = () => {
-	const ordersCount = useSelector((state) => state.cart.orders.length);
+	const ordersCount = useSelector(
+		(state) =>
+			state.cart.cartItems.length > 0 &&
+			state.cart.cartItems.reduce((acc, item) => acc + item.quantity, 0),
+	);
 	return (
 		<>
 			<CartIcon /> Cart{' '}

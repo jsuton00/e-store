@@ -3,7 +3,7 @@ export const updateObjects = (oldObject, updatedProperties) => ({
 	...updatedProperties,
 });
 
-export const orderItemObject = (productId, quantity) => ({
-	productId: productId,
-	quantity: quantity,
+export const cartItemObject = (product, quantity) => ({
+	...product,
+	quantity,
 });

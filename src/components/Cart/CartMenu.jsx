@@ -4,10 +4,12 @@ import Checkout from './Checkout';
 import '../../styles/components/cart-menu.css';
 import CloseButton from '../Buttons/CloseButton';
 import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 import CartItem from './CartItem';
+import { roundPrices } from '../../utils/displayNumbers';
 
 const CartMenu = (props) => {
-	const { orders, closeCartMenu } = props;
+	const { cartItems, total, closeCartMenu, removeCartItem } = props;
 	return (
 		<div className="cart-menu container-fluid">
 			<div className="cart-menu-section cart-menu-header row">
@@ -19,14 +21,26 @@ const CartMenu = (props) => {
 				</div>
 			</div>
 			<div className="cart-menu-section order-list list-group">
-				{orders.length > 0 &&
-					orders.map((item, i) => {
+				{cartItems.length > 0 &&
+					cartItems.map((item, i) => {
 						return (
-							<div key={i} className="order-list-item list-group-item">
-								<CartItem productId={item.productId} quantity={item.quantity} />
-							</div>
+							<CartItem
+								key={i}
+								productId={item.id}
+								productTitle={item.title}
+								productImage={item.image}
+								productPrice={item.price}
+								quantity={item.quantity}
+								removeItem={() => removeCartItem(item.id)}
+							/>
 						);
 					})}
+			</div>
+			<div className="cart-menu-section total-display-section">
+				<p className="total-display">
+					Total:{' '}
+					<span className="total-amount">{`€${roundPrices(total)}`}</span>
+				</p>
 			</div>
 			<div className="cart-menu-section checkout-btn-row row">
 				<Checkout />
@@ -36,7 +50,12 @@ const CartMenu = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-	orders: state.cart.orders,
+	cartItems: state.cart.cartItems.length > 0 && [...state.cart.cartItems],
+	total: state.cart.total,
 });
 
-export default connect(mapStateToProps)(CartMenu);
+const mapDispatchToProps = (dispatch) => ({
+	removeCartItem: (productId) => dispatch(actions.removeFromCart(productId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartMenu);
