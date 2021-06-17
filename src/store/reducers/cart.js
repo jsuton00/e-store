@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import { ORDER_QUANTITY_OPTIONS } from '../../constants/options';
-import { cartItemObject, updateObjects } from '../helpers/reduxUtils';
+import { updateObjects } from '../helpers/reduxUtils';
 
 const initialState = {
 	cartItems: [],
@@ -27,10 +27,9 @@ const addToCartFail = (state, action) => {
 
 const addToCartSuccess = (state, action) => {
 	let cartItems = [...state.cartItems];
-	let cartItem;
 	let quantity;
 
-	const existingItem = state.cartItems.find(
+	let existingItem = state.cartItems.find(
 		(item) => item.id === action.cartItem.productId,
 	);
 
@@ -47,12 +46,17 @@ const addToCartSuccess = (state, action) => {
 		}
 	} else {
 		quantity = action.cartItem.quantity;
-		cartItem = cartItemObject(action.cartItem.cartItem, quantity);
-		cartItems = [...cartItems, cartItem];
+		cartItems = [...cartItems, action.cartItem.cartItem];
+
+		cartItems = cartItems.map((item) =>
+			item.id === action.cartItem.productId
+				? { ...item, quantity: quantity }
+				: item,
+		);
 	}
 
 	return updateObjects(state, {
-		cartItems: cartItems,
+		cartItems: [...cartItems],
 		total:
 			cartItems.length > 0 &&
 			cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0),
@@ -93,6 +97,20 @@ const decreaseQuantity = (state, action) => {
 	});
 };
 
+const updateCartItem = (state, action) => {
+	let existingItem = state.cartItems.find(
+		(item) => item.id === action.productId,
+	);
+
+	if (existingItem) {
+		existingItem.quantity = action.quantity;
+	}
+
+	return updateObjects(state, {
+		cartItems: [...state.cartItems],
+	});
+};
+
 const removeFromCart = (state, action) => {
 	let updatedCartItems = [...state.cartItems];
 
@@ -123,6 +141,8 @@ const cart = (state = initialState, action) => {
 			return increaseQuantity(state, action);
 		case actionTypes.DECREASE_QUANTITY:
 			return decreaseQuantity(state, action);
+		case actionTypes.UPDATE_CART_ITEM:
+			return updateCartItem(state, action);
 		case actionTypes.REMOVE_FROM_CART:
 			return removeFromCart(state, action);
 		default:

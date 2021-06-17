@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AddtoCart from './AddtoCart';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
@@ -13,7 +13,20 @@ const PurchaseControl = (props) => {
 		quantity,
 		selectQuantity,
 		addToCart,
+		updateCartItem,
 	} = props;
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			if (productId && quantity) {
+				return updateCartItem(productId, quantity);
+			}
+		}, 100);
+
+		return () => {
+			clearTimeout(timer);
+		};
+	}, [productId, quantity, updateCartItem]);
 
 	return (
 		<div className="product-purchase-control">
@@ -47,6 +60,8 @@ const mapDispatchToProps = (dispatch) => ({
 	selectQuantity: (quantity) => dispatch(actions.selectQuantity(quantity)),
 	addToCart: (productId, quantity) =>
 		dispatch(actions.addToCart(productId, quantity)),
+	updateCartItem: (productId, quantity) =>
+		dispatch(actions.updateCartItem(productId, quantity)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PurchaseControl);

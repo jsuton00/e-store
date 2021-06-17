@@ -14,6 +14,7 @@ const RelatedProducts = (props) => {
 		getRelatedProducts,
 		selectProduct,
 		productId,
+		addToCart
 	} = props;
 
 	let history = useHistory();
@@ -51,6 +52,7 @@ const RelatedProducts = (props) => {
 							image={p.image}
 							category={p.category}
 							visitProduct={() => visitProduct(p.id)}
+							addToCart={() => addToCart(p.id)}
 						/>
 					);
 				})}
@@ -67,6 +69,7 @@ const mapDispatchToProps = (dispatch) => ({
 	getRelatedProducts: (category, productId) =>
 		dispatch(actions.getRelatedProducts(category, productId)),
 	selectProduct: (productId) => dispatch(actions.selectProductId(productId)),
+	addToCart: (productId) => dispatch(actions.addToCart(productId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RelatedProducts);
