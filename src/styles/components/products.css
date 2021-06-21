@@ -14,7 +14,6 @@
 .product-card {
 	border: 0.0625rem solid #110836;
 	border-radius: 0.75rem;
-	box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.17);
 	width: 100%;
 	min-height: 35rem;
 	height: 35rem;

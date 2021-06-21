@@ -3,14 +3,12 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from './reducers';
 import watchStore from './sagas';
-import hardSet from 'redux-persist/es/stateReconciler/hardSet';
 import persistReducer from 'redux-persist/es/persistReducer';
 import persistStore from 'redux-persist/es/persistStore';
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	stateReconciler: hardSet,
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

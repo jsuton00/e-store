@@ -85,10 +85,7 @@ const filterByCategories = (state, action) => {
 	let filteredProducts;
 
 	if (categories.length === 0) {
-		return updateObjects(state, {
-			filteredProducts: [...state.products],
-			checkedCategories: [...categories],
-		});
+		filteredProducts = state.products;
 	} else if (state.minPrice && state.maxPrice) {
 		filteredProducts = state.products.filter(
 			(p) =>
@@ -104,7 +101,7 @@ const filterByCategories = (state, action) => {
 
 	return updateObjects(state, {
 		filteredProducts: filteredProducts.length > 0 && [...filteredProducts],
-		checkedCategories: categories,
+		checkedCategories: [...categories],
 	});
 };
 
@@ -247,17 +244,18 @@ export const fetchProduct = (state, action) => {
 
 export const searchProducts = (state, action) => {
 	let searchTerm = action.searchTerm;
+	const products = state.products;
 	let searchedProducts;
 
 	if (searchTerm.length > 0) {
 		searchedProducts =
-			state.products.length > 0 && searchArray(state.products, searchTerm);
+			state.products.length > 0 && searchArray(products, searchTerm);
 	} else {
-		searchedProducts = [...state.products];
+		searchedProducts = products;
 	}
 
 	return updateObjects(state, {
-		filteredProducts: searchedProducts.length > 0 && searchedProducts,
+		filteredProducts: searchedProducts.length > 0 ? searchedProducts : products,
 		loadingProducts: false,
 	});
 };

@@ -50,9 +50,9 @@ const ProductDetailsPage = (props) => {
 	);
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
 	product: state.products.product,
-	productId: state.products.productId,
+	productId: ownProps.location.productId,
 	relatedProducts: state.products.relatedProducts,
 	productCategory: state.products.product && state.products.product.category,
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import { calculateTotalPrice, roundPrices } from '../../utils/displayNumbers';
@@ -13,19 +13,35 @@ const CartItem = (props) => {
 		productPrice,
 		quantity,
 		removeItem,
+		visitProduct,
 	} = props;
 
 	const dispatch = useDispatch();
 
+	const cartItemRef = useRef();
+
+	const handleClick = (e) => {
+		if (e.target.value === cartItemRef.current.value) {
+			return visitProduct(e.target.value);
+		}
+	};
+
 	return (
-		<div className="cart-item card">
+		<div
+			ref={cartItemRef}
+			className="cart-item card"
+			onClick={handleClick}
+			value={productId}
+		>
 			<div className="cart-item-content row no-gutters">
 				<div className="cart-item-img-col col-md-4">
 					<img src={productImage} className="card-img" alt={productTitle} />
 				</div>
 				<div className="col-md-8">
 					<div className="cart-item-body card-body">
-						<h5 className="cart-item-title card-title">{productTitle}</h5>
+						<h5 className="cart-item-title card-title" value={productId}>
+							{productTitle}
+						</h5>
 						<div className="cart-item-price-control card-text row">
 							<span className="cart-item-quantity">
 								<QuantityCounter

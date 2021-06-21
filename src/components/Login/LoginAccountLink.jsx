@@ -5,7 +5,7 @@ import '../../styles/components/buttons.css';
 
 const LoginAccountLink = () => {
 	return (
-		<RouteLink linkAddress={'/login-page'} routeLinkType={'user-login-link'}>
+		<RouteLink linkAddress="/account/login" routeLinkType="user-login-link">
 			<span className="btn-icon user-login-icon">
 				<AccountLoginIcon />
 			</span>

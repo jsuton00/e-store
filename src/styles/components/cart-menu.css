@@ -100,6 +100,7 @@
 	text-overflow: ellipsis;
 	width: 100%;
 	font-size: 1rem;
+	cursor: pointer;
 }
 
 .cart-item-price-control {

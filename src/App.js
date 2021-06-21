@@ -3,8 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import ViewportProvider from './containers/Viewport';
 import { useCartMenu, useToggle } from './hooks/useToggle';
+import LoginPage from './pages/LoginPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ProductsPage from './pages/ProductsPage';
+import SignUpPage from './pages/SignUpPage';
 import './styles/app.css';
 
 const App = () => {
@@ -27,6 +29,8 @@ const App = () => {
 						component={() => <ProductsPage openValue={isOpen} />}
 					/>
 					<Route path="/products/:id" component={ProductDetailsPage} />
+					<Route exact path="/account/login" component={LoginPage} />
+					<Route exact path="/account/create" component={SignUpPage} />
 				</Switch>
 			</main>
 		</ViewportProvider>

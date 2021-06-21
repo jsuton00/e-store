@@ -87,10 +87,11 @@ const decreaseQuantity = (state, action) => {
 	}
 
 	updatedCartItems =
-		items.length > 0 &&
-		[...items].filter((item) =>
-			item.id === action.productId ? item.quantity > 0 : item,
-		);
+		items.length > 0
+			? items.filter((item) =>
+					item.id === action.productId ? item.quantity > 0 : item,
+			  )
+			: [];
 	return updateObjects(state, {
 		cartItems: updatedCartItems,
 		total: items.reduce((acc, item) => acc + item.quantity * item.price, 0),
@@ -98,16 +99,16 @@ const decreaseQuantity = (state, action) => {
 };
 
 const updateCartItem = (state, action) => {
-	let existingItem = state.cartItems.find(
-		(item) => item.id === action.productId,
-	);
+	let existingItem =
+		state.cartItems.length > 0 &&
+		state.cartItems.find((item) => item.id === action.productId);
 
 	if (existingItem) {
 		existingItem.quantity = action.quantity;
 	}
 
 	return updateObjects(state, {
-		cartItems: [...state.cartItems],
+		cartItems: state.cartItems,
 	});
 };
 
@@ -117,11 +118,11 @@ const removeFromCart = (state, action) => {
 	if (action.productId) {
 		updatedCartItems =
 			updatedCartItems.length > 0 &&
-			[...state.cartItems].filter((item) => item.id !== action.productId);
+			updatedCartItems.filter((item) => item.id !== action.productId);
 	}
 
 	return updateObjects(state, {
-		cartItems: updatedCartItems.length > 0 && [...updatedCartItems],
+		cartItems: updatedCartItems.length > 0 ? [...updatedCartItems] : [],
 		total: updatedCartItems.reduce(
 			(acc, item) => acc + item.quantity * item.price,
 			0,

@@ -7,9 +7,19 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import CartItem from './CartItem';
 import { roundPrices } from '../../utils/displayNumbers';
+import { useHistory } from 'react-router';
 
 const CartMenu = (props) => {
 	const { cartItems, total, closeCartMenu, removeCartItem } = props;
+
+	let history = useHistory();
+
+	const visitProduct = (productId) => {
+		return history.push({
+			pathname: `/products/:${productId}`,
+			productId: productId,
+		});
+	};
 	return (
 		<div className="cart-menu container-fluid">
 			<div className="cart-menu-section cart-menu-header row">
@@ -31,6 +41,7 @@ const CartMenu = (props) => {
 								productImage={item.image}
 								productPrice={item.price}
 								quantity={item.quantity}
+								visitProduct={() => visitProduct(item.id)}
 								removeItem={() => removeCartItem(item.id)}
 							/>
 						);
