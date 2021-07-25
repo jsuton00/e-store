@@ -41,3 +41,28 @@ export {
 } from './cart';
 
 export { setSearchTerm } from './search';
+
+export {
+	registerUser,
+	registerUserFail,
+	registerUserSuccess,
+	setUser,
+	loginUser,
+	loginUserFail,
+	loginUserSuccess,
+	logoutUser,
+	loadingToRegister,
+	loadingToLogin,
+} from './auth';
+
+export {
+	fetchUsers,
+	fetchUsersFail,
+	fetchUsersSuccess,
+	fetchUser,
+	fetchUserFail,
+	fetchUserSuccess,
+	deleteUser,
+	deleteUserFail,
+	deleteUserSuccess,
+} from './users';

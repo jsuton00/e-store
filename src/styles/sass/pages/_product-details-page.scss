@@ -1,0 +1,42 @@
+.product-details-page-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 0.25rem 0;
+}
+
+.product-details-header {
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 0.25rem 0.5rem;
+	margin: 0 auto 0.5rem;
+
+	&-section {
+		width: 100%;
+		max-width: 100%;
+		height: 22.5rem;
+	}
+}
+
+.main-product-details {
+	flex-basis: 61%;
+	padding: $spacing-sm;
+}
+
+.purchase-controls {
+	flex-basis: 32%;
+	padding: $spacing-sm;
+}
+
+.related-products-section {
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 0.25rem 0.5rem;
+	margin: 0 auto;
+}

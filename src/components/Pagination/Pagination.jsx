@@ -6,7 +6,6 @@ import {
 	PreviousPageButton,
 } from './PageItemLink';
 import * as actions from '../../store/actions/index';
-import '../../styles/components/pagination.css';
 
 const Pagination = (props) => {
 	const {

@@ -28,7 +28,7 @@ const ProductCards = (props) => {
 				<p className="product-card-price card-text">{`€${price}`}</p>
 				<p className="product-card-category card-text">{category}</p>
 			</div>
-			<div className="product-card-header card-header">
+			<div className="product-card-footer card-footer">
 				<AddtoCart addToCart={addToCart} productId={id} />
 			</div>
 		</div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import CartCounter from './CartCounter';
 import Checkout from './Checkout';
-import '../../styles/components/cart-menu.css';
 import CloseButton from '../Buttons/CloseButton';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
@@ -20,6 +19,7 @@ const CartMenu = (props) => {
 			productId: productId,
 		});
 	};
+
 	return (
 		<div className="cart-menu container-fluid">
 			<div className="cart-menu-section cart-menu-header row">

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-multi-carousel/lib/styles.css';
-import './styles/index.css';
+import './styles/css/index.css';
 
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';

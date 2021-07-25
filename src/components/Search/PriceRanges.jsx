@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import '../../styles/components/priceRanges.css';
 
 const PriceRanges = (props) => {
 	const {
@@ -31,6 +30,14 @@ const PriceRanges = (props) => {
 		};
 	}, [filterByPrices, maxValue, minValue]);
 
+	const handleChangeMinValue = (e) => {
+		return setMinValue(e.target.value);
+	};
+
+	const handleChangeMaxValue = (e) => {
+		setMaxValue(e.target.value);
+	};
+
 	return (
 		<div className="price-range-container">
 			<div className="price-range-input-row row">
@@ -42,7 +49,7 @@ const PriceRanges = (props) => {
 						type="text"
 						className="price-min-range"
 						placeholder={minDefaultValue}
-						onChange={(e) => setMinValue(e.target.value)}
+						onChange={handleChangeMinValue}
 						value={minValue}
 					/>
 				</div>
@@ -53,7 +60,7 @@ const PriceRanges = (props) => {
 						type="text"
 						className="price-max-range"
 						placeholder={maxDefaultValue}
-						onChange={(e) => setMaxValue(e.target.value)}
+						onChange={handleChangeMaxValue}
 						value={maxValue}
 					/>
 				</div>

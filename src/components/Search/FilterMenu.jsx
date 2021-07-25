@@ -1,7 +1,6 @@
 import React from 'react';
 import FilterCategories from './FilterCategories';
 import PriceRanges from './PriceRanges';
-import '../../styles/components/filter-menu.css';
 
 const FilterMenu = () => {
 	return (

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import { Search } from '../../utils/icons-import';
-import '../../styles/components/search-bar.css';
 
 const SearchBar = (props) => {
 	const { searchTerm, setSearchTerm, searchProducts } = props;
@@ -19,6 +18,11 @@ const SearchBar = (props) => {
 			clearTimeout(timer);
 		};
 	}, [searchProducts, searchTerm]);
+
+	const handleChange = (e) => {
+		return setSearchTerm(e.target.value);
+	};
+
 	return (
 		<div className="search-bar">
 			<span className="search-icon">
@@ -31,7 +35,7 @@ const SearchBar = (props) => {
 				type="text"
 				className="search-input"
 				placeholder="Search products..."
-				onChange={(e) => setSearchTerm(e.target.value)}
+				onChange={handleChange}
 				value={searchTerm}
 			/>
 		</div>

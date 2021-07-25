@@ -1,5 +1,6 @@
 import React from 'react';
 import FilterMenu from '../components/Search/FilterMenu';
+import SearchModal from '../components/Search/SearchModal';
 
 export const carouselResponsiveStyle = {
 	widescreen: {
@@ -20,14 +21,10 @@ export const carouselResponsiveStyle = {
 	},
 };
 
-export const showOrHideComponent = (width, isOpen) => {
+export const showOrHideComponent = (width, isOpen, handleClose) => {
 	if (width < 1042) {
 		if (isOpen === true) {
-			return (
-				<div className="products-page-section filter-menu-section">
-					<FilterMenu />
-				</div>
-			);
+			return <SearchModal handleClose={handleClose} />;
 		} else if (isOpen === false) {
 			return <></>;
 		}

@@ -5,7 +5,6 @@ import { useHistory } from 'react-router';
 import * as actions from '../../store/actions/index';
 import { carouselResponsiveStyle } from '../../utils/componentUtils';
 import ProductCards from './ProductCards';
-import '../../styles/components/related-products.css';
 
 const RelatedProducts = (props) => {
 	const {
@@ -14,7 +13,7 @@ const RelatedProducts = (props) => {
 		getRelatedProducts,
 		selectProduct,
 		productId,
-		addToCart
+		addToCart,
 	} = props;
 
 	let history = useHistory();
@@ -69,7 +68,7 @@ const mapDispatchToProps = (dispatch) => ({
 	getRelatedProducts: (category, productId) =>
 		dispatch(actions.getRelatedProducts(category, productId)),
 	selectProduct: (productId) => dispatch(actions.selectProductId(productId)),
-	addToCart: (productId) => dispatch(actions.addToCart(productId))
+	addToCart: (productId) => dispatch(actions.addToCart(productId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RelatedProducts);

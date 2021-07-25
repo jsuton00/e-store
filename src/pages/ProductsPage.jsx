@@ -5,15 +5,14 @@ import Products from '../components/Products/Products';
 import Sort from '../components/Search/Sort';
 import { useViewportContext } from '../hooks/useViewport';
 import { showOrHideComponent } from '../utils/componentUtils';
-import '../styles/pages/products-page.css';
 
 const ProductsPage = (props) => {
-	const { openValue } = props;
+	const { openValue, handleClose } = props;
 	const [width] = useViewportContext();
 	return (
-		<div id="products-page" className="products-page container-fluid">
-			<div className="products-page-content row">
-				{showOrHideComponent(width, openValue)}
+		<div id="products-page" className="page products-page container-fluid">
+			<div className="page-content products-page-content row">
+				{showOrHideComponent(width, openValue, handleClose)}
 				<div className="products-page-section products-listing-section">
 					<Sort />
 					<Products />

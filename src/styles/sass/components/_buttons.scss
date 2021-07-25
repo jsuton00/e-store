@@ -1,10 +1,13 @@
 .route-link-btn {
 	width: 100%;
-	padding: 0.5rem;
+	height: 100%;
+	padding: $spacing-sm;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .btn-icon {
-	margin-right: 0.25rem;
+	margin-right: $spacing-xxs;
 }
 
 .cart-menu-button {
@@ -12,23 +15,22 @@
 	border: none;
 	background-color: transparent;
 	width: 100%;
-	padding: 0.5rem 1.25rem;
+	padding: $spacing-sm $spacing-lg;
 }
 
 .cart-counter {
 	position: absolute;
 	top: 0;
-	padding: 0 0.5rem;
-	background-color: #00d1b2;
+	padding: 0 $spacing-sm;
+	background-color: $cart-counter-bg-colour;
 	border-radius: 50%;
-	margin-left: 0.125rem;
+	margin-left: $spacing-secondary;
 }
 
 .add-to-cart-btn {
-	border: 0.0625rem solid #00d1b2;
-	background-color: #00d1b2;
-	padding: 0.5rem 1.25rem;
-	font-weight: 500;
+	border: $spacing-primary solid $primary-btn-bg-colour !important;
+	background-color: $primary-btn-bg-colour !important;
+	color: $primary-btn-text-colour;
 }
 
 .checkout-button {

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import '../../styles/components/sort.css';
 import Select from '../Inputs/Select';
 import * as actions from '../../store/actions/index';
 

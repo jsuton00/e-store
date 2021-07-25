@@ -1,7 +1,6 @@
 import React from 'react';
 import { RouteLink } from '../components/Buttons/LinkButtons';
 import SignUpForm from '../components/Login/SignUpForm';
-import '../styles/pages/signup-page.css';
 
 const SignUpPage = () => {
 	return (

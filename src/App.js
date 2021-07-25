@@ -7,10 +7,9 @@ import LoginPage from './pages/LoginPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ProductsPage from './pages/ProductsPage';
 import SignUpPage from './pages/SignUpPage';
-import './styles/app.css';
 
 const App = () => {
-	const [isOpen, handleToggle] = useToggle();
+	const [isOpen, handleToggle, handleClose] = useToggle();
 	const [openCartMenu, closeCartMenu, handleCartMenu] = useCartMenu();
 	return (
 		<ViewportProvider>
@@ -26,7 +25,9 @@ const App = () => {
 					<Route
 						exact
 						path="/"
-						component={() => <ProductsPage openValue={isOpen} />}
+						component={() => (
+							<ProductsPage openValue={isOpen} handleClose={handleClose} />
+						)}
 					/>
 					<Route path="/products/:id" component={ProductDetailsPage} />
 					<Route exact path="/account/login" component={LoginPage} />

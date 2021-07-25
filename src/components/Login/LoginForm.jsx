@@ -1,10 +1,11 @@
 import React from 'react';
-import '../../styles/components/login-form.css';
+import { useForm } from '../../hooks/useForm';
 
 const LoginForm = () => {
-	const handleSubmit = (e) => {
-		e.preventDefault();
-	};
+	const { inputValues, handleChange, handleSubmit, errors } = useForm({
+		email: '',
+		password: '',
+	});
 
 	return (
 		<form
@@ -20,7 +21,11 @@ const LoginForm = () => {
 					type="email"
 					placeholder="Email address"
 					className="form-input login-input"
+					onChange={handleChange}
+					value={inputValues.email}
+					autoComplete="email"
 				/>
+				{errors.email && <p className="invalid-feedback">{errors.email}</p>}
 			</div>
 			<div className="login-form-group login-form-input-section row">
 				<input
@@ -28,8 +33,14 @@ const LoginForm = () => {
 					name="password"
 					type="password"
 					placeholder="Password"
+					onChange={handleChange}
+					value={inputValues.password}
 					className="form-input login-input"
+					autoComplete="current-password"
 				/>
+				{errors.password && (
+					<p className="invalid-feedback">{errors.password}</p>
+				)}
 			</div>
 			<div className="login-form-group login-form-submit-section row">
 				<button

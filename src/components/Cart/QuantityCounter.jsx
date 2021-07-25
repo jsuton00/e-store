@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../styles/components/quantity-counter.css';
 
 const QuantityCounter = (props) => {
 	const { quantity, increaseQuantity, decreaseQuantity } = props;

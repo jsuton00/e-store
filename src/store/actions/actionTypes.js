@@ -54,3 +54,41 @@ export const LOAD_NEXT_PAGE = 'LOAD_NEXT_PAGE';
 export const LOAD_SELECTED_PAGE = 'LOAD_SELECTED_PAGE';
 
 export const SET_PAGE_SIZE = 'SET_PAGE_SIZE';
+
+/** Authentication Action Types */
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGIN_USER_FAIL = 'LOGIN_FAIL';
+export const LOGIN_USER_SUCCESS = 'LOGIN_SUCCESS';
+
+export const REGISTER_USER = 'REGISTER_USER';
+export const REGISTER_USER_FAIL = 'REGISTER_FAIL';
+export const REGISTER_USER_SUCCESS = 'REGISTER_SUCCESS';
+
+export const SET_USER = 'SET_USER';
+
+export const LOADING_TO_LOGIN = 'LOADING_TO_LOGIN';
+export const LOADING_TO_REGISTER = 'LOADING_TO_REGISTER';
+
+export const FETCH_USER = 'FETCH_USER';
+export const FETCH_USER_FAIL = 'FETCH_USER_FAIL';
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
+
+export const FETCH_USERS = 'FETCH_USERS';
+export const FETCH_USERS_FAIL = 'FETCH_USERS_FAIL';
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
+
+export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_USER_FAIL = 'UPDATE_USER_FAIL';
+export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
+
+export const DELETE_USER = 'DELETE_USER';
+export const DELETE_USER_FAIL = 'DELETE_USER_FAIL';
+export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS';
+
+export const LOADING_USERS = 'LOADING_USERS';
+export const AUTH_ERROR = 'AUTH_ERROR';
+
+export const LOGOUT_USER = 'LOGOUT_SUCCESS';
+
+export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';

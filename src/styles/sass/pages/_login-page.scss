@@ -1,0 +1,71 @@
+.login-page {
+	&-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.login-form {
+	&-section {
+		padding: 1rem 2.5rem 1rem;
+		height: 100%;
+	}
+	&-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 18.75rem;
+		width: 100%;
+		max-width: 25rem;
+		padding: 1rem;
+		margin: 5rem auto;
+		border: 0.0625rem solid #110836;
+		background-color: #fff;
+		box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.17);
+		border-radius: 0.75rem;
+	}
+	&-title {
+		width: 100%;
+		max-width: 100%;
+		font-size: 1.5rem;
+		font-weight: 600;
+		text-align: center;
+		padding: 0.25rem 0 0.5rem;
+		margin: 0 auto;
+	}
+}
+
+.switch-account-form-link {
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 0.25rem 0;
+	margin: 0 auto;
+}
+
+.create-account-link {
+	min-width: 18.75rem;
+	width: 100%;
+	max-width: 25rem;
+	padding: 0.75rem 2rem;
+	text-align: center;
+	margin: 0 auto;
+	border: 0.0625rem solid $darkgray;
+	background-color: $darkgray;
+	box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.17);
+	border-radius: 0.75rem;
+
+	& a {
+		text-decoration: none;
+		font-weight: 500;
+		color: $default-text-colour;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: $white;
+		}
+	}
+}

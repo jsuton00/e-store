@@ -39,9 +39,7 @@ const CartItem = (props) => {
 				</div>
 				<div className="col-md-8">
 					<div className="cart-item-body card-body">
-						<h5 className="cart-item-title card-title" value={productId}>
-							{productTitle}
-						</h5>
+						<h5 className="cart-item-title card-title">{productTitle}</h5>
 						<div className="cart-item-price-control card-text row">
 							<span className="cart-item-quantity">
 								<QuantityCounter

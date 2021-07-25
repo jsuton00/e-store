@@ -1,0 +1,43 @@
+.products-page {
+	&-content {
+		justify-content: flex-start;
+		align-items: stretch;
+		padding: $spacing-xxs 0;
+	}
+}
+
+.filter-menu {
+	&-section {
+		flex-basis: 21%;
+		width: 100%;
+		max-width: 18.75rem;
+		height: auto;
+		padding-bottom: 2%;
+
+		@media (max-width: 1041px) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 100%;
+			max-width: 18.75rem;
+			height: auto;
+			transform: translateY(18%);
+		}
+	}
+}
+
+.products-listing-section {
+	flex-basis: 70%;
+	width: 100%;
+	max-width: 100%;
+	padding: $spacing-sm $spacing-lg;
+	flex-grow: 2;
+}
+
+.products-pagination-row {
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: $spacing-xxs $spacing-base;
+}

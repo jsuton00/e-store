@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import ProductCards from './ProductCards';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import '../../styles/components/products.css';
 import { useHistory } from 'react-router';
 
 const Products = (props) => {

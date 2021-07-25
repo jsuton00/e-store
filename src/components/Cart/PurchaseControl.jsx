@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import AddtoCart from './AddtoCart';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import '../../styles/components/purchase-control.css';
 import Select from '../Inputs/Select';
 
 const PurchaseControl = (props) => {

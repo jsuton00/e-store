@@ -7,3 +7,10 @@ export const cartItemObject = (product, quantity) => ({
 	...product,
 	quantity,
 });
+
+export const userObject = {
+	firstName: '',
+	lastName: '',
+	email: '',
+	password: '',
+};

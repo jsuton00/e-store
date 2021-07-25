@@ -1,7 +1,6 @@
 import React from 'react';
 import { AccountLoginIcon } from '../../utils/icons-import';
 import { RouteLink } from '../Buttons/LinkButtons';
-import '../../styles/components/buttons.css';
 
 const LoginAccountLink = () => {
 	return (

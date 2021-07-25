@@ -4,7 +4,6 @@ import ProductDetails from '../components/Products/ProductDetails';
 import PurchaseControl from '../components/Cart/PurchaseControl';
 import RelatedProducts from '../components/Products/RelatedProducts';
 import * as actions from '../store/actions/index';
-import '../styles/pages/product-details-page.css';
 
 const ProductDetailsPage = (props) => {
 	const { product, productId, getProduct, productCategory } = props;
@@ -16,9 +15,9 @@ const ProductDetailsPage = (props) => {
 	}, [getProduct, productId]);
 
 	return (
-		<div className="product-details-page container-fluid">
-			<div className="product-details-page-content">
-				<div className="product-details-page-section product-details-header row">
+		<div className="page product-details-page container-fluid">
+			<div className="page-content product-details-page-content">
+				<div className="page-section product-details-page-section product-details-header row">
 					<div className="product-details-header-section main-product-details">
 						{product && (
 							<ProductDetails
@@ -38,7 +37,7 @@ const ProductDetailsPage = (props) => {
 						)}
 					</div>
 				</div>
-				<div className="product-details-page-section related-products-section row">
+				<div className="page-section product-details-page-section related-products-section row">
 					<h5>Related Products</h5>
 					<RelatedProducts
 						relatedKeyValue={productCategory}
