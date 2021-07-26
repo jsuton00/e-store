@@ -4,7 +4,7 @@ import * as actions from '../../store/actions/index';
 import { validateForm } from '../../utils/validate';
 
 const SignUpForm = (props) => {
-	const { user, userData, setUser, register } = props;
+	const { userData, setUser, register } = props;
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [errors, setErrors] = useState('');
 
