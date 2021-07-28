@@ -5,13 +5,13 @@ export const useViewport = (viewportWidth, viewportHeight) => {
 	const [width, setWidth] = useState(viewportWidth || window.innerWidth);
 	const [height, setHeight] = useState(viewportHeight || window.innerHeight);
 
-	const handleWindowResize = () => {
-		setWidth(window.innerWidth);
-		setHeight(window.innerHeight);
-	};
-
 	useEffect(() => {
 		const timer = setTimeout(() => {
+			const handleWindowResize = () => {
+				setWidth(window.innerWidth);
+				setHeight(window.innerHeight);
+			};
+
 			window.addEventListener('resize', handleWindowResize);
 
 			return () => {

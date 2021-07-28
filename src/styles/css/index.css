@@ -593,7 +593,6 @@ textarea:active {
 .product-details {
   width: 100%;
   max-width: 100%;
-  height: 22.5rem;
   margin: 0 auto;
 }
 .product-details-content {
@@ -614,7 +613,7 @@ textarea:active {
   padding: 0.25rem 0.5rem;
 }
 .product-details-body {
-  flex-basis: 65%;
+  flex: 1 0 auto;
 }
 .product-details-body p {
   align-items: baseline;
@@ -629,6 +628,16 @@ textarea:active {
   margin-right: 0.25rem;
   font-weight: 500;
 }
+@media (max-width: 1258px) {
+  .product-details-body p {
+    flex-basis: 100%;
+  }
+}
+@media (min-width: 1260px) {
+  .product-details-body p {
+    flex-basis: 65%;
+  }
+}
 .product-details-title {
   width: 100%;
   font-weight: 600;
@@ -636,15 +645,25 @@ textarea:active {
 }
 
 .product-image {
-  flex-basis: 35%;
+  flex: 1 0 auto;
+}
+@media (max-width: 1258px) {
+  .product-image {
+    flex-basis: 100%;
+  }
+}
+@media (min-width: 1260px) {
+  .product-image {
+    flex-basis: 35%;
+  }
 }
 .product-image img {
   width: 100%;
-  height: 100%;
+  max-height: 22.5rem;
+  margin: 0 auto;
 }
 
-.product-purchase-control {
-  position: relative;
+.product-purchase-control-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -660,9 +679,65 @@ textarea:active {
   background-clip: border-box;
   margin: 0.5rem auto;
 }
+.product-purchase-control-banner {
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: 4rem;
+  margin: 0 auto;
+}
+.product-purchase-control-banner .product-price-section {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 539px) {
+  .product-purchase-control-banner .product-price-section {
+    flex-basis: 96%;
+  }
+}
+@media (min-width: 540px) {
+  .product-purchase-control-banner .product-price-section {
+    flex-basis: 24%;
+  }
+}
+.product-purchase-control-banner .product-price-section .product-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  line-height: normal;
+  text-align: center;
+  margin: 0 auto;
+}
+.product-purchase-control-banner .product-add-to-cart-section {
+  flex-basis: 72%;
+  flex-grow: 2;
+  height: 100%;
+  border-radius: 0;
+}
+@media (max-width: 539px) {
+  .product-purchase-control-banner .product-add-to-cart-section {
+    flex-basis: 96%;
+  }
+}
+@media (min-width: 540px) {
+  .product-purchase-control-banner .product-add-to-cart-section {
+    flex-basis: 72%;
+  }
+}
 .product-purchase-control-title {
+  width: 100%;
   padding: 0.25rem 0;
   margin: 0.25rem auto;
+  text-align: center;
 }
 .product-purchase-control-section {
   justify-content: space-around;
@@ -670,28 +745,34 @@ textarea:active {
   width: 100%;
   max-width: 100%;
   padding: 0.25rem 0;
-  height: auto;
   margin: 0 auto;
 }
 
 .product-price {
   width: 100%;
-  font-size: 4ch;
+  height: 100%;
+  font-size: 5ch;
   text-align: center;
   font-weight: 500;
+  line-height: 16rem;
   margin: 0 auto;
 }
 .product-price-section {
-  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 22.5rem;
   margin: 0 0 0.25rem;
 }
 
 .product-add-to-cart-section {
-  border: 0.0625rem solid #e5e7ee;
-  background-color: #e5e7ee;
+  border: 0.0625rem solid #5b6987;
+  background-color: #5b6987;
   border-bottom-left-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
-  padding: 0.5rem;
+  padding: 0.25rem 1.5rem;
+  margin: 0 auto;
 }
 .product-add-to-cart-section .select-container {
   width: 15%;
@@ -709,9 +790,7 @@ textarea:active {
 }
 
 .carousel-container {
-  justify-content: center;
   width: 100%;
-  max-width: 100%;
   padding: 0.5rem 1rem;
   margin: 0 auto;
 }
@@ -882,54 +961,21 @@ textarea:active {
   text-align: center;
 }
 
-.login-form {
+.form {
   width: 100%;
-  height: 100%;
+  max-width: 100%;
   padding: 1rem;
-}
-.login-form-group {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-  padding: 0.25rem 0;
   margin: 0 auto;
 }
-.login-input {
-  width: 100%;
-  padding: 0.5rem 1rem;
-}
-.login-btn {
-  border: 0.0625rem solid #00d1b2;
-  background-color: #00d1b2;
-  width: 100%;
-  padding: 0.5rem 1.25rem;
-  font-weight: 500;
-}
-
-.signup-form {
-  width: 100%;
-  height: 100%;
-  padding: 0.5rem 1rem;
-}
-.signup-form-group {
-  justify-content: center;
-  align-items: center;
+.form-input-section, .form-submit-section {
   width: 100%;
   max-width: 100%;
-  padding: 0.25rem 0;
+  padding: 0.25rem;
   margin: 0 auto;
 }
-.signup-form-input {
+.form-input {
   width: 100%;
   padding: 0.5rem 1rem;
-}
-.signup-form-btn {
-  border: 0.0625rem solid #00d1b2;
-  background-color: #00d1b2;
-  width: 100%;
-  padding: 0.5rem 1.25rem;
-  font-weight: 500;
 }
 
 .invalid-feedback {
@@ -944,6 +990,16 @@ textarea:active {
   overflow: hidden;
 }
 
+.btn-form-submit {
+  width: 100%;
+}
+.btn-submit {
+  border: 0.0625rem solid #0069ff;
+  background-color: #0069ff;
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+}
 .btn-icon {
   margin-right: 0.25rem;
 }
@@ -1062,17 +1118,46 @@ textarea:active {
 .product-details-header-section {
   width: 100%;
   max-width: 100%;
-  height: 22.5rem;
 }
 
 .main-product-details {
-  flex-basis: 61%;
+  flex: 2 0 auto;
   padding: 0.5rem;
+}
+@media (min-width: 992px) and (max-width: 1439px) {
+  .main-product-details {
+    flex-basis: 55%;
+  }
+}
+@media (min-width: 1440px) {
+  .main-product-details {
+    flex-basis: 61%;
+  }
 }
 
 .purchase-controls {
-  flex-basis: 32%;
+  flex: 1 0 auto;
   padding: 0.5rem;
+}
+@media (max-width: 991px) {
+  .purchase-controls {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 5rem;
+    background-color: #5b6987;
+  }
+}
+@media (min-width: 992px) and (max-width: 1439px) {
+  .purchase-controls {
+    flex-basis: 40%;
+  }
+}
+@media (min-width: 1440px) {
+  .purchase-controls {
+    flex-basis: 32%;
+  }
 }
 
 .related-products-section {

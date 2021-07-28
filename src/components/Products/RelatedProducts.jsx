@@ -39,6 +39,7 @@ const RelatedProducts = (props) => {
 			responsive={carouselResponsiveStyle}
 			containerClass="carousel-container"
 			itemClass="carousel-item-padding-40-px"
+			removeArrowOnDeviceType={['tablet', 'mobile']}
 		>
 			{relatedProducts.length > 0 &&
 				relatedProducts.map((p, i) => {

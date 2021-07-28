@@ -1,23 +1,78 @@
 .product-purchase-control {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	min-width: 0;
-	width: 100%;
-	max-width: 100%;
-	height: 100%;
-	margin: 0 auto;
-	border-radius: 0.75rem;
-	box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.17);
-	word-wrap: break-word;
-	background-clip: border-box;
-	margin: 0.5rem auto;
+	&-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-width: 0;
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
+		margin: 0 auto;
+		border-radius: 0.75rem;
+		box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.17);
+		word-wrap: break-word;
+		background-clip: border-box;
+		margin: 0.5rem auto;
+	}
+	&-banner {
+		position: relative;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
+		max-width: 100%;
+		height: 4rem;
+		margin: 0 auto;
 
+		& .product-price-section {
+			flex: 1 0 auto;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+
+			@media (max-width: 539px) {
+				flex-basis: 96%;
+			}
+
+			@media (min-width: 540px) {
+				flex-basis: 24%;
+			}
+
+			& .product-price {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				font-size: $font-size-lg;
+				line-height: normal;
+				text-align: center;
+				margin: 0 auto;
+			}
+		}
+
+		& .product-add-to-cart-section {
+			flex-basis: 72%;
+			flex-grow: 2;
+			height: 100%;
+			border-radius: 0;
+
+			@media (max-width: 539px) {
+				flex-basis: 96%;
+			}
+
+			@media (min-width: 540px) {
+				flex-basis: 72%;
+			}
+		}
+	}
 	&-title {
+		width: 100%;
 		padding: 0.25rem 0;
 		margin: 0.25rem auto;
+		text-align: center;
 	}
 
 	&-section {
@@ -26,30 +81,36 @@
 		width: 100%;
 		max-width: 100%;
 		padding: 0.25rem 0;
-		height: auto;
 		margin: 0 auto;
 	}
 }
 
 .product-price {
 	width: 100%;
-	font-size: 4ch;
+	height: 100%;
+	font-size: 5ch;
 	text-align: center;
 	font-weight: 500;
+	line-height: 16rem;
 	margin: 0 auto;
 
 	&-section {
-		height: 33vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 22.5rem;
 		margin: 0 0 0.25rem;
 	}
 }
 
 .product-add-to-cart-section {
-	border: 0.0625rem solid $lavender;
-	background-color: $lavender;
+	border: 0.0625rem solid $slategray;
+	background-color: $slategray;
 	border-bottom-left-radius: 0.75rem;
 	border-bottom-right-radius: 0.75rem;
-	padding: 0.5rem;
+	padding: $spacing-xxs $spacing-xl;
+	margin: 0 auto;
 
 	& .select-container {
 		width: 15%;

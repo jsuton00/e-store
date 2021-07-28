@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import { validateForm } from '../../utils/validate';
+import { validateSignUpForm } from '../../utils/validate';
 
 const SignUpForm = (props) => {
 	const { userData, setUser, register } = props;
@@ -10,7 +10,7 @@ const SignUpForm = (props) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setErrors(validateForm(userData));
+		setErrors(validateSignUpForm(userData));
 
 		if (Object.keys(errors).length === 0) {
 			setIsSubmitted(true);
@@ -43,9 +43,9 @@ const SignUpForm = (props) => {
 			id="signupForm"
 			name="signupForm"
 			onSubmit={handleSubmit}
-			className="signup-form"
+			className="form signup-form"
 		>
-			<div className="signup-form-group signup-form-input-section row">
+			<div className="form-input-section">
 				<input
 					id="firstName"
 					name="firstName"
@@ -59,7 +59,7 @@ const SignUpForm = (props) => {
 					<p className="invalid-feedback">{errors.firstName}</p>
 				)}
 			</div>
-			<div className="signup-form-group signup-form-input-section row">
+			<div className="form-input-section">
 				<input
 					id="lastName"
 					name="lastName"
@@ -73,7 +73,7 @@ const SignUpForm = (props) => {
 					<p className="invalid-feedback">{errors.lastName}</p>
 				)}
 			</div>
-			<div className="signup-form-group signup-form-input-section row">
+			<div className="form-input-section">
 				<input
 					id="email"
 					name="email"
@@ -88,7 +88,7 @@ const SignUpForm = (props) => {
 					<p className="invalid-feedback">{errors.email}</p>
 				)}
 			</div>
-			<div className="signup-form-group signup-form-input-section row">
+			<div className="form-input-section">
 				<input
 					id="password"
 					name="password"
@@ -103,7 +103,7 @@ const SignUpForm = (props) => {
 					<p className="invalid-feedback">{errors.password}</p>
 				)}
 			</div>
-			<div className="signup-form-group signup-form-input-section row">
+			<div className="form-input-section">
 				<input
 					id="confirmPassword"
 					name="confirmPassword"
@@ -118,12 +118,12 @@ const SignUpForm = (props) => {
 					<p className="invalid-feedback">{errors.confirmPassword}</p>
 				)}
 			</div>
-			<div className="signup-form-group signup-form-submit-section row">
+			<div className="form-submit-section">
 				<button
 					id="btnSignup"
 					name="btnSignup"
 					type="submit"
-					className="signup-btn"
+					className="btn btn-submit btn-form-submit"
 				>
 					Sign up
 				</button>

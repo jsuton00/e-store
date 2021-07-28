@@ -1,7 +1,6 @@
 .product-details {
 	width: 100%;
 	max-width: 100%;
-	height: 22.5rem;
 	margin: 0 auto;
 
 	&-content {
@@ -23,7 +22,7 @@
 		}
 	}
 	&-body {
-		flex-basis: 65%;
+		flex: 1 0 auto;
 
 		& p {
 			align-items: baseline;
@@ -38,6 +37,14 @@
 				margin-right: 0.25rem;
 				font-weight: 500;
 			}
+
+			@media (max-width: 1258px) {
+				flex-basis: 100%;
+			}
+
+			@media (min-width: 1260px) {
+				flex-basis: 65%;
+			}
 		}
 	}
 	&-title {
@@ -48,10 +55,19 @@
 }
 
 .product-image {
-	flex-basis: 35%;
+	flex: 1 0 auto;
+
+	@media (max-width: 1258px) {
+		flex-basis: 100%;
+	}
+
+	@media (min-width: 1260px) {
+		flex-basis: 35%;
+	}
 
 	& img {
 		width: 100%;
-		height: 100%;
+		max-height: 22.5rem;
+		margin: 0 auto;
 	}
 }

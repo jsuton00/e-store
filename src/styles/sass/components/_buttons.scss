@@ -6,8 +6,20 @@
 	overflow: hidden;
 }
 
-.btn-icon {
-	margin-right: $spacing-xxs;
+.btn {
+	&-form-submit {
+		width: 100%;
+	}
+	&-submit {
+		border: $spacing-primary solid $primary-btn-bg-colour;
+		background-color: $primary-btn-bg-colour;
+		color: $primary-btn-text-colour;
+		padding: $spacing-sm $spacing-lg;
+		font-weight: $ubuntu-medium;
+	}
+	&-icon {
+		margin-right: $spacing-xxs;
+	}
 }
 
 .cart-menu-button {

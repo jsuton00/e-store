@@ -18,18 +18,42 @@
 	&-section {
 		width: 100%;
 		max-width: 100%;
-		height: 22.5rem;
 	}
 }
 
 .main-product-details {
-	flex-basis: 61%;
+	flex: 2 0 auto;
 	padding: $spacing-sm;
+
+	@media (min-width: 992px) and (max-width: 1439px) {
+		flex-basis: 55%;
+	}
+
+	@media (min-width: 1440px) {
+		flex-basis: 61%;
+	}
 }
 
 .purchase-controls {
-	flex-basis: 32%;
+	flex: 1 0 auto;
 	padding: $spacing-sm;
+
+	@media (max-width: 991px) {
+		position: fixed;
+		bottom: 0;
+		z-index: 1;
+		width: 100%;
+		height: 5rem;
+		background-color: $slategray;
+	}
+
+	@media (min-width: 992px) and (max-width: 1439px) {
+		flex-basis: 40%;
+	}
+
+	@media (min-width: 1440px) {
+		flex-basis: 32%;
+	}
 }
 
 .related-products-section {

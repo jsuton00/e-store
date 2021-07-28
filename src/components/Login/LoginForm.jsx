@@ -1,20 +1,35 @@
-import React from 'react';
-import { useForm } from '../../hooks/useForm';
+import React, { useState } from 'react';
+import { validateLoginForm } from '../../utils/validate';
 
 const LoginForm = () => {
-	const { inputValues, handleChange, handleSubmit, errors } = useForm({
-		email: '',
-		password: '',
-	});
+	const [loginData, setLoginData] = useState({ email: '', password: '' });
+	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [errors, setErrors] = useState('');
 
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		e.persist();
+		setLoginData({ ...loginData, [name]: value });
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setErrors(validateLoginForm(loginData));
+
+		if (Object.keys(errors).length === 0) {
+			setIsSubmitted(true);
+		} else {
+			console.log(errors);
+		}
+	};
 	return (
 		<form
 			id="loginForm"
 			name="loginForm"
 			onSubmit={handleSubmit}
-			className="login-form"
+			className="form login-form"
 		>
-			<div className="login-form-group login-form-input-section row">
+			<div className="form-input-section">
 				<input
 					id="email"
 					name="email"
@@ -22,32 +37,34 @@ const LoginForm = () => {
 					placeholder="Email address"
 					className="form-input login-input"
 					onChange={handleChange}
-					value={inputValues.email}
+					value={loginData.email}
 					autoComplete="email"
 				/>
-				{errors.email && <p className="invalid-feedback">{errors.email}</p>}
+				{errors.email && isSubmitted === true && (
+					<p className="invalid-feedback">{errors.email}</p>
+				)}
 			</div>
-			<div className="login-form-group login-form-input-section row">
+			<div className="form-input-section">
 				<input
 					id="password"
 					name="password"
 					type="password"
 					placeholder="Password"
 					onChange={handleChange}
-					value={inputValues.password}
+					value={loginData.password}
 					className="form-input login-input"
 					autoComplete="current-password"
 				/>
-				{errors.password && (
+				{errors.password && isSubmitted === true && (
 					<p className="invalid-feedback">{errors.password}</p>
 				)}
 			</div>
-			<div className="login-form-group login-form-submit-section row">
+			<div className="form-submit-section">
 				<button
 					id="btnLogin"
 					name="btnLogin"
 					type="submit"
-					className="login-btn"
+					className="btn btn-submit btn-form-submit"
 				>
 					Log in
 				</button>
